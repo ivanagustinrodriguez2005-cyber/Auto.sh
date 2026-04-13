@@ -1,0 +1,19 @@
+	#!/usr/bin/env bash
+read -p "desea eleguir donde crear el .sh o dejara que se cree dentro de su directorio actual?1)2): " cond
+if [ $cond -eq 2 ];  then
+read -p "a continuacion ponga el nombre de su .sh: " pican
+touch $pican.sh && chmod +x $pican.sh
+echo "#!/usr/bin/env bash" >> $pican.sh
+nano $pican.sh
+ls $(pwd)
+elif [ $cond -eq 1 ]; then
+read -p "a continuacion ponga el nombre de su .sh: " pican
+read -p "a continuacion ingrese la direccion donde desea crear la carpeta: " loc
+touch "$loc/$pican.sh" && chmod +x "$loc/$pican.sh"
+echo "#!/usr/bin/env bash" >> "$loc/$pican.sh"
+ls $loc
+nano $loc/$pican.sh
+fi
+# en otro momento quiero hacer una condicional que me permita entre eleguir crear 
+#dentro del mismo directorio o eleguir la direccion de creacion
+#ademas tengo que hacer que se cree .sh
